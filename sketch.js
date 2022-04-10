@@ -26,6 +26,8 @@ function setup() {
   const gridX = Math.floor(windowWidth / 50);
   const gridY = Math.floor(windowHeight / 50);
   GRID = createGrid(gridX, gridY);
+
+  // colorMode(HSB, 100);
 }
 
 function draw() {
@@ -37,8 +39,9 @@ function draw() {
     const noiseValue = _noise(0);
     const force = _noise(0.1);
     const size = _noise(1);
+    const color = _noise(3);
     var angle = noiseValue * TWO_PI * 4;
-    renderCircle(u, v, angle, force, size);
+    renderCircle(u, v, angle, force, size, color);
   });
 }
 
@@ -56,9 +59,10 @@ function createGrid(x, y) {
   return grid;
 }
 
-function renderCircle(u, v, angle, force, size) {
+function renderCircle(u, v, angle, force, size, color) {
   var vector = p5.Vector.fromAngle(angle);
-  vector.setMag(0.02 * force);
+  vector.setMag(0.015 * force);
+  fill(360 * color, 60, 100);
   circle(getX(u + vector.x), getY(v + vector.y), dotSize * size);
 }
 
