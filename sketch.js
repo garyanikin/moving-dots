@@ -31,7 +31,8 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+  // background(0);
+  background("rgba(0,0,0, 0.8)");
   GRID.forEach(([u, v]) => {
     const _noise = (n) =>
       simplex.noise4D(u / noiseZoom, v / noiseZoom, frameCount / noiseSpeed, n);
