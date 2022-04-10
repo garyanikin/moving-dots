@@ -35,9 +35,10 @@ function draw() {
       simplex.noise4D(u / noiseZoom, v / noiseZoom, frameCount / noiseSpeed, n);
 
     const noiseValue = _noise(0);
-    const force = _noise(1) - 0.5;
+    const force = _noise(0.1);
+    const size = _noise(1);
     var angle = noiseValue * TWO_PI * 4;
-    renderCircle(u, v, angle, force);
+    renderCircle(u, v, angle, force, size);
   });
 }
 
@@ -55,10 +56,10 @@ function createGrid(x, y) {
   return grid;
 }
 
-function renderCircle(u, v, angle, force) {
+function renderCircle(u, v, angle, force, size) {
   var vector = p5.Vector.fromAngle(angle);
   vector.setMag(0.02 * force);
-  circle(getX(u + vector.x), getY(v + vector.y), dotSize);
+  circle(getX(u + vector.x), getY(v + vector.y), dotSize * size);
 }
 
 function getX(u) {
