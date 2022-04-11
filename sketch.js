@@ -1,6 +1,6 @@
 let GRID = [];
 let antiMagnetVector = null;
-const dotSize = 10;
+const dotSize = 15;
 const FR = 30;
 let index = 0;
 let v0;
@@ -62,7 +62,7 @@ function setup() {
   const gridY = Math.floor(windowHeight / 50);
   GRID = createGrid(gridX, gridY);
 
-  // colorMode(HSB, 100);
+  colorMode(HSB, 100);
 }
 
 function draw() {
@@ -70,7 +70,7 @@ function draw() {
   index = 0;
   v0 = createVector(0, 0);
   // background(0);
-  background("rgba(0,0,0, 0.8)");
+  background("rgba(0,0,0, 0.61)");
   GRID.forEach(([u, v]) => {
     const _noise = (n) =>
       simplex.noise4D(u / noiseZoom, v / noiseZoom, frameCount / noiseSpeed, n);
