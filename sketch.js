@@ -107,7 +107,7 @@ function renderCircle(u, v, angle = 0, force = 0, size = 1, color = 1) {
   // var vector = p5.Vector.fromAngle(0);
   // vector.setMag(0);
 
-  fill(360 * color, 60, 100);
+  fill(100 * color, 60, 90);
   let { _u, _v } = applyAntimagnet(u + vector.x, v + vector.y, index++);
   circle(getX(_u), getY(_v), dotSize * size);
 }
